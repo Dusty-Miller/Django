@@ -1,20 +1,18 @@
 from django.shortcuts import render, redirect
-
-from .forms import PostForm
 from .models import Post
-
-def index(request):
+from .forms import PostForm
+def shoplist(request):
     #db에서 query select * from post
-    posts = Post.objects.all().order_by('-pk')
+    posts = Post.objects.all()
     return render(request,
-                  template_name='blog/index.html',
+                  template_name='shop/shoplist.html',
                   context={'posts':posts})
 
 
-def detail(request, pk):
+def shopdetail(request, pk):
     post = Post.objects.get(pk=pk)
     return render(request,
-                  'blog/detail.html',
+                  'shop/shopdetail.html',
                   context={'post':post})
 
 def create(request):
@@ -25,16 +23,10 @@ def create(request):
             post1 = postform.save(commit=False)
             post1.title = post1.title + ""
             postform.save()
-            return redirect('/blog/')
+            return redirect('/shop/')
     else: #get
         postform = PostForm()
     return render(request,
-                  template_name="blog/postform.html",
+                  template_name="shop/postform.html",
                   context={'postform':postform})
 
-def createfake(request):
-    post = Post()
-    post.title = "새싹 용산구"
-    post.content='나진상가 3층'
-    post.save()
-    return redirect('/blog/')
