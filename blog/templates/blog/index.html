@@ -6,6 +6,11 @@
 <div class="col-lg-8" id="main-area">
                     <!-- Featured blog post-->
                 {%  for post in posts %}
+                    {% if post.category %}
+                                <a class="badge bg-secondary text-decoration-none link-light" href="#!">{{post.category.name}}</a>
+                            {% else %}
+                                <a class="badge bg-secondary text-decoration-none link-light" href="#!">None</a>
+                            {% endif %}
                     <div class="card mb-4">
                         <a href="#!"><figure class="mb-4">
                             {% if post.uploaded_image %}
@@ -15,10 +20,17 @@
                             {% endif %}
                         </figure></a>
                         <div class="card-body">
-                            <div class="small text-muted">{{ post.created_date }}</div>
+                            <div class="small text-muted">{{ post.created }}</div>
+                              {% if post.category %}
+                            <div class="text-muted fst-italic mb-2">Category: {{ post.category.name}}</div>
+                            {% else %}
+                            <div class="text-muted fst-italic mb-2">미분류</div>
+                            {% endif %}
+
                             <h2 class="card-title">{{ post.title }}</h2>
+                            <div class="text-muted fst-italic mb-2">Posted on by {{post.author}}</div>
                             <p class="card-text">{{ post.content }}</p>
-                            <a class="btn btn-primary" href="/blog/{{ post.pk }}">상세 페이지→</a>
+                            <a class="btn btn-primary" href="/blog/{{ post.pk }}">Read more→</a>
                         </div>
                     </div>
                     {% endfor %}
