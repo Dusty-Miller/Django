@@ -1,19 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>글쓰기 페이지</title>
-</head>
-<body>
-postform.html입니다.
-글쓰는 화면입니다.
-http://127.0.0.1:8000/blog/create/
+{% extends 'blog/base.html' %}
+{% block main-area %}
+{% block header-area %}
+    <h1 class="fw-bolder text-white" >Writting</h1>
+    {% endblock %}
 <form method="POST" enctype="multipart/form-data">
     {% csrf_token %}
     {{ postform }}
 <input type="submit">
 </form>
+{% endblock %}
 
-
-</body>
-</html>
+{% block create-area %}
+{% endblock %}
