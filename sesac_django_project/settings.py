@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'blog',
     'library',
     'shop',
+    'django_extensions'
 ]
 
 MIDDLEWARE = [

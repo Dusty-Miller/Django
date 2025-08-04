@@ -23,7 +23,7 @@
 </style>
 
 </head>
-<body>
+<body >
 {% load static %}
 {% include 'blog/nav.html' %}
 <!-- Page header with logo and tagline-->
@@ -61,7 +61,7 @@
                         <div class="card-body">
                             <div class="input-group">
                                 <input class="form-control" type="text" placeholder="Enter search term..." aria-label="Enter search term..." aria-describedby="button-search" />
-                                <button class="btn btn-primary" id="button-search" type="button">Go!</button>
+                                <button class="btn btn-primary" id="button-search" type="button" style="background-color: cornflowerblue">Go!</button>
                             </div>
                         </div>
                     </div>
@@ -73,7 +73,7 @@
 {#                                        <!--views.xxx() context로 넘겨 받아야함 -->#}
 {#                                        categories -> category list 받음#}
                                         {% for category in categories %}
-                                        <li><a href={{ category.get_url }}>{{ category.name }}</a></li>
+                                        <li><a href={{ category.get_url }} >{{ category.name }}</a></li>
                                         {% endfor %}
                                         <li><a href="/blog/category/no_category">미분류</a></li>
 

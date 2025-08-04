@@ -24,8 +24,19 @@ class Post(models.Model):
                                        blank=True,)
     uploaded_file = models.FileField(upload_to = 'files/',
                                      blank=True,)
+    def __str__(self):
+        return (f'게시글 제목: {self.title} -by: {self.author} -category: {self.category}')
+
+class Comment(models.Model):
+    post = models.ForeignKey(Post,on_delete=models.CASCADE)
+    author = models.ForeignKey(User,on_delete=models.CASCADE)
+    content = models.TextField(max_length=100)
+    created_date = models.DateTimeField(auto_now_add=True,
+                                        null=True,)
+    update_date = models.DateTimeField(auto_now=True,
+                                       null=True,)
 
 
     def __str__(self):
-        return f'게시글 제목:{self.title}-by{self.author} -category:{self.category}'
+        return (f'{self.author.username}--{self.content} in {self.post.title}')
 

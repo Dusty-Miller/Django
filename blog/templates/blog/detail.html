@@ -6,24 +6,25 @@
         <!-- Page content-->
         <div class="container mt-5">
             <div class="row">
-                <div class="col-lg-8">
+                <div class="col-lg-12">
                     <!-- Post content-->
                     <article>
                         <!-- Post header-->
                         <header class="mb-4">
                             <!-- Post title-->
                             <h1 class="fw-bolder mb-1">{{ post.title }}</h1>
-                            {% if post.category %}
-                            <div class="text-muted fst-italic mb-2">Category: {{ post.category.name}}</div>
-                            {% else %}
-                            <div class="text-muted fst-italic mb-2">미분류</div>
-                            {% endif %}
-
-                            <div class="text-muted fst-italic mb-2">Posted on {{ post.created_date}} by {{post.author}}</div>
-                            <!-- Post meta content-->
-                            <div class="text-muted fst-italic mb-2">{{ post.content }}</div>
+                   {% if post.category %}
+                       <a class="badge  text-decoration-none link-light" style="background-color: cornflowerblue" href="#!">{{post.category.name}}</a>
+                   {% else %}
+                       <a class="badge bg-secondary text-decoration-none link-light" href="#!">None</a>
+                   {% endif %}
                             <!-- Post categories-->
-                            </header>
+                            <a class="btn btn-primary" href="/blog/{{ post.pk }}/update" style="background-color: darkseagreen">Post update
+                        </a>
+                        <a class="btn btn-primary" href="/blog/{{ post.pk }}/delete" style="background-color: #c06360">Post delete
+                        </a>
+
+                        </header>
                         <!-- Preview image figure-->
                     <figure class="mb-4">
                             {% if post.uploaded_image %}
@@ -32,17 +33,38 @@
                                 <img class="img-fluid rounded" src="https://dummyimage.com/850x400/ced4da/6c757d.jpg" alt="..." />
                             {% endif %}
                         </figure>
+                    <div class="text-muted fst-italic mb-2">{{ post.content }}</div>
+                      <div class="text-muted fst-italic mb-2">Posted on {{ post.created_date}} by {{post.author}}</div>
                     {% if post.uploaded_file %}
                     <button><a href={{ post.uploaded_file.url }} download>Download</a></button>
-                        {% endif %}
+                    {% endif %}
                         <!-- Post content-->
-                        <section class="mb-5">
-                            {{ post }}
-                        </section>
                     </article>
-                    <!-- Comments section-->
                 </div>
             </div>
         </div>
-                <!-- Side widgets-->
+    <!-- Comments section-->
+    <section class="mb-5">
+                        <div class="card bg-light">
+                            <div class="card-body">
+                                <h3>댓글 목록</h3>
+                                        {% for comment in comments %}
+                                        <div class="border-bottom mb-2 pb-2">
+                                            <p><strong>{{ comment.author }}</strong> • {{ comment.created_date|date:"Y-m-d H:i" }}<span> </span>
+                                                <a href="{% url 'updatecomment' comment.pk %}" class="btn btn-sm btn-outline-secondary text-white" style="background-color: darkseagreen" >수정</a>
+                                        <a href="{% url 'deletecomment' comment.pk %}" class="btn btn-sm btn-outline-secondary text-white" style="background-color: #c06360">삭제</a></p>
+                                            <p>{{ comment.content }}</p>
+
+                                        </div>
+                                        {% empty %}
+                                             <p>아직 댓글이 없습니다.</p>
+                                        {% endfor %}
+                                        <hr>
+                                <h3>댓글 작성</h3>
+                                        <form method="POST" enctype="multipart/form-data" action="{% url 'createcomment' post.pk %}">
+                                            {% include "blog/comment_update_form.html" %}
+                                        </form>
+                            </div>
+                        </div>
+                    </section>
 {% endblock %}

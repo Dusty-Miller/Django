@@ -3,13 +3,13 @@
         <h1 class="fw-bolder" style="color:#edf6ff" >Welcome to Blog Home!</h1>
         {% endblock %}
 {% block main-area %}
-    <div class="col-lg-10" id="main-area">
+    <div class="col-lg-12" id="main-area">
                     <!-- Featured blog post-->
                 {%  for post in posts %}
                     {% if post.category %}
-                                <a class="badge bg-secondary text-decoration-none link-light" href="#!">{{post.category.name}}</a>
+                                <a class="badge  text-decoration-none link-light" style="background-color: cornflowerblue" href="#!">{{post.category.name}}</a>
                             {% else %}
-                                <a class="badge bg-secondary text-decoration-none link-light" href="#!">None</a>
+                                <a class="badge  text-decoration-none link-light" style="background-color: cornflowerblue" href="#!">None</a>
                             {% endif %}
                     <div class="card mb-4" style="overflow: hidden">
                         <a href="#!"><figure class="mb-4">
@@ -32,7 +32,7 @@
                             <h2 class="card-title">{{ post.title }}</h2>
                             <div class="text-muted fst-italic mb-2">Posted on by {{post.author}}</div>
                             <p class="card-text">{{ post.content }}</p>
-                            <a class="btn btn-primary" href="/blog/{{ post.pk }}">Read more→</a>
+                            <a class="btn btn-primary" style="background-color: cornflowerblue" href="/blog/{{ post.pk }}">Read more→</a>
                         </div>
                     </div>
                     {% endfor %}
