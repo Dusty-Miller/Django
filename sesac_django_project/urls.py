@@ -28,6 +28,8 @@ urlpatterns = [
     path('library/', include('library.urls')),
     path('shop/', include('shop.urls')),
     path('aboutme/',include('single_pages.urls')),
+    path('example/',include('example.urls')),
+
    ]
 
 
