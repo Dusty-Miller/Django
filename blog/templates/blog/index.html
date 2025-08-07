@@ -22,8 +22,7 @@
                             {% endif %}
                         </figure></a>
                         <div class="card-body">
-                            <div class="small text-muted">{{ post.created }}</div>
-                              {% if post.category %}
+                            {% if post.category %}
                             <div class="text-muted fst-italic mb-2">Category: {{ post.category.name}}</div>
                             {% else %}
                             <div class="text-muted fst-italic mb-2">미분류</div>

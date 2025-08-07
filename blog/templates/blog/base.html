@@ -53,9 +53,11 @@
                 <div class="col-lg-4">
                     <!-- Search widget-->
                     <div class="card mb-4">
-                        {% block create-area %}
-                        <button class="ql-bg-blue bg-white"><a href="/blog/create/">글쓰기</a></button>
-                        {% endblock %}
+                       {% if request.path != '/blog/create/' %}
+                        {% if user.is_authenticated %}
+                            <button><a href="/blog/create/">글쓰기</a></button>
+                        {% endif %}
+                    {% endif %}
 
                         <div class="card-header">Search</div>
                         <div class="card-body">

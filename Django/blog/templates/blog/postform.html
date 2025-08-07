@@ -1,0 +1,14 @@
+{% extends 'blog/base.html' %}
+{% block main-area %}
+{% block header-area %}
+    <h1 class="fw-bolder text-white" >Create New Post</h1>
+    {% endblock %}
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ postform }}
+<input type="submit">
+</form>
+{% endblock %}
+
+{% block create-area %}
+{% endblock %}

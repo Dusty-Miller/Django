@@ -20,6 +20,25 @@
         -moz-transition:transform .35s;
         -webkit-transition:transform .35s;
     }
+
+    @keyframes dustyFadeIn {
+  0% {
+    filter: blur(20px) brightness(0.3);
+    opacity: 0;
+    transform: translateY(40px) scale(1.1);
+  }
+  100% {
+    filter: blur(0px) brightness(1);
+    opacity: 1;
+    transform: translateY(0px) scale(1);
+  }
+}
+
+.dusty-text {
+  display: inline-block;
+  animation: dustyFadeIn 6s ease-out forwards;
+  opacity: 0;
+}
 </style>
 </head>
 <body>
@@ -57,7 +76,7 @@
         <header class="bg-dark py-5">
             <div class="container px-4 px-lg-5 my-5">
                 <div class="text-center text-white">
-                    <h1 class="display-1 fw-bolder">Dusty Shop</h1>
+                    <h1 class="display-1 fw-bolder dusty-text">Dusty Shop</h1>
                 </div>
             </div>
         </header>

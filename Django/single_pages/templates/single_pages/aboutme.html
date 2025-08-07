@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>김윤석의 홈페이지</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+          rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+  </head>
+    <style>
+        a {background-color: grey}
+    </style>
+<img src="https://visitor-badge.laobi.icu/badge?page_id=hay-dev2024.hay-dev2024.github.io" alt="Visitors">
+</head>
+
+<body style="background-color: grey">
+<nav class="navbar navbar-expand-lg bg-body-tertiary container-fluid bg-dark">
+  <div class="container">
+    <div class="row">
+
+    </div>
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Blog</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="./index.html">Aboutme</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Dropdown link
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+</div>
+</nav>
+<div class="container">
+  <div class="row">
+    <div class="col-6">
+            <h1 style="text-align: center;
+    color: darkkhaki;
+    background-color: grey;
+    padding: 10px;
+    border: 10px;
+    margin:10px;">김윤석의 홈페이지 메인페이지입니다.</h1>
+      <h2>먼지는 귀엽다</h2>
+      <h2>먼지는 귀엽다</h2>
+      <h2>먼지는 귀엽다</h2>
+    </div>
+
+    <div class="col-4">
+      <img src={% static 'single_pages/zi.jpg' %} width="400" height="400">
+    </div>
+  </div>
+  </div>
+<div class="container">
+  <div class="col-9">
+    <div class="col-4">
+    </div>
+  </div>
+  <div class="row"></div>
+</div>
+        <footer class="py-5 bg-dark">
+            <div class="container"><p class="m-0 text-center text-white">Copyright &copy; 새싹 용산구 2025</p></div>
+        </footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+    </body>
+</html>
